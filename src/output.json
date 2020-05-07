@@ -1,0 +1,246 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-05-04T22:02:39.085Z",
+    "end": "2020-05-04T22:02:39.085Z",
+    "duration": 166167,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c0aeece2-3151-4870-963e-a3de764db91f",
+      "title": "",
+      "fullFile": "cypress\\integration\\test1\\test1.spec.js",
+      "file": "cypress\\integration\\test1\\test1.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c03988c-07c3-4578-ba8f-c1b5d6f74737",
+          "title": "test1 journey",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "4b8fe166-4580-46eb-b77a-1e6a0b44ba4e",
+              "title": "will do something",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "test1 ",
+                  "fullTitle": "test1 journey will purchase quote test1 ",
+                  "timedOut": null,
+                  "duration": 43386,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture('test1/test1.json').then(function (data) {\n    cy.contains('button', 'Accept all cookies').click();\n    cy.contains('test1').click({ force: true });\n    cy.contains('Get Quotes').click();\n    cy.contains('About you').click();\n    cy.get('#title').select(data.title);\n    cy.get('#firstName').type(data.fName);\n    cy.get('#lastName').type(data.lName);\n    cy.get('#dob').type(data.dob);\n    cy.get('#displayAddress').type(data.eircode);\n    cy.contains('32 O\\'Daly').click();\n    cy.get('#phoneNo').type(data.pNumber);\n    cy.get('#email').type(data.email);\n    cy.get('#employmentStatus').select(data.empStatus);\n    cy.get('#bankOfIrelandCustomer__No').click();\n    cy.get('#hasMortgage__No').click();\n    cy.contains('Your test1').click();\n    cy.get('#coverType').select(data.typeOfCover);\n    cy.get('#test1Type').select(data.typeOfProp);\n    cy.get('#yearOfConstruction').type('2000');\n    cy.get('#numBedrooms').select(data.numOfBed);\n    cy.get('#numBathrooms').select(data.numOfBath);\n    cy.contains('Yes - Standard').click();\n    cy.get('#twoSmokeDetectors__Yes').click();\n    cy.get('#propertyJointlyOwned__No').click();\n    cy.contains('Your cover').click();\n    cy.get('#policyStart').type(data.policyStart);\n    cy.get('#rebuildCost').type(data.rebuildAmount);\n    cy.get('#contentsCoverOf').type(data.contentsAmount);\n    cy.get('#acceptedAssumptions').click();\n    cy.get('#acceptedTermsAndConditions').click();\n    cy.get('#GetQuote__getCoveredButton').click();\n    cy.wait(10000);\n    cy.get('#GetQuoteThankYouPage__SeeQuoteButton').click();\n    cy.get('#QuoteDisplay__proceedButton').click();\n    cy.contains('Next').click();\n    cy.get('#paymentFrequency__Single').click();\n    cy.wait(2000);\n    helpers_js_1.completetest1test2dPaymentFields();\n    cy.wait(3000);\n    cy.get('#QuoteDisplay__buyButton').click();\n});",
+                  "err": {},
+                  "uuid": "d394d592-39ac-4ab7-bcff-5bc3abdc8a45",
+                  "parentUUID": "4b8fe166-4580-46eb-b77a-1e6a0b44ba4e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d394d592-39ac-4ab7-bcff-5bc3abdc8a45"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 43386,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "65e8bb46-26bc-4f35-9b45-795f74b99606",
+      "title": "",
+      "fullFile": "cypress\\integration\\motor\\motor.spec.js",
+      "file": "cypress\\integration\\motor\\motor.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "58ecce23-c911-4c8e-a265-74ada05ce211",
+          "title": "test2 journey",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "will fail",
+              "fullTitle": "test2 will fail",
+              "timedOut": null,
+              "duration": 23290,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "helpers_1.acceptCookies();\ncy.fixture('motor/motor.json').then(function (data) {\n    helpers_2.completetest2QuoteForm(__assign(__assign({}, data), { dob: '2010-02-02' }));\n    cy.contains('You must be over 18 to take out a policy');\n    cy.contains('Get your quote').click();\n    cy.get('#GenericQuotePageForm__getQuote').should('be.disabled');\n});",
+              "err": {},
+              "uuid": "c42b2258-8f71-4648-827b-d70764a0fea3",
+              "parentUUID": "58ecce23-c911-4c8e-a265-74ada05ce211",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "will get will pass",
+              "fullTitle": "test2 journey will pass",
+              "timedOut": null,
+              "duration": 28284,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "helpers_1.acceptCookies();\ncy.fixture('motor/motor.json').then(function (data) {\n    helpers_2.completetest2QuoteForm(data);\n    // get quote\n    cy.get('#GenericQuotePageForm__getQuote').click();\n    cy.wait(6000);\n    cy.contains('See quote');\n});",
+              "err": {},
+              "uuid": "bcb1aafc-4fa5-4d8f-a847-38905ee1564c",
+              "parentUUID": "58ecce23-c911-4c8e-a265-74ada05ce211",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": " will pass 2",
+              "fullTitle": "test2 journey will pass 2",
+              "timedOut": null,
+              "duration": 43474,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "helpers_1.acceptCookies();\ncy.fixture('motor/motor.json').then(function (data) {\n    helpers_2.completetest2QuoteForm(data);\n    // get quote\n    cy.get('#GenericQuotePageForm__getQuote').click();\n    cy.wait(6000);\n    cy.get('#SuccessPage__seeQuoteLink').click();\n    helpers_1.proceedToPayment();\n    cy.wait(2000);\n    helpers_2.completetest2test2dPaymentFields();\n    cy.wait(3000);\n    cy.get('#QuoteDisplay__buyButton').click();\n});",
+              "err": {},
+              "uuid": "f41f3b4f-5bbf-46d3-bf3b-af29758c6f80",
+              "parentUUID": "58ecce23-c911-4c8e-a265-74ada05ce211",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "will pass 3",
+              "fullTitle": "test2 journey will pass 3",
+              "timedOut": null,
+              "duration": 27733,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "helpers_1.acceptCookies();\ncy.fixture('motor/motor.json').then(function (data) {\n    helpers_2.completetest2QuoteForm(data);\n    // get quote\n    cy.get('#GenericQuotePageForm__wrongID').click();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `#GenericQuotePageForm__wrongID`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `#GenericQuotePageForm__wrongID`, but never found it.\n    at ensureExistence (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:137311:32)\n    at Object.ensureElExistence (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:137329:12)\n    at ensureExistence (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:127867:23)\n    at onFailFn (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:127905:9)\n    at tryCatcher (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:9059:23)\n    at Promise._settlePromiseFromHandler (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:6994:31)\n    at Promise._settlePromise (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:7051:18)\n    at Promise._settlePromise0 (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:7096:10)\n    at Promise._settlePromises (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:7172:18)\n    at _drainQueueStep (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:3766:12)\n    at _drainQueue (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:3759:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:3775:5)\n    at Async.drainQueues (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:3645:14)",
+                "diff": null
+              },
+              "uuid": "7cf6c659-747f-4d63-9191-115acee49357",
+              "parentUUID": "58ecce23-c911-4c8e-a265-74ada05ce211",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c42b2258-8f71-4648-827b-d70764a0fea3",
+            "bcb1aafc-4fa5-4d8f-a847-38905ee1564c",
+            "f41f3b4f-5bbf-46d3-bf3b-af29758c6f80"
+          ],
+          "failures": [
+            "7cf6c659-747f-4d63-9191-115acee49357"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 122781,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/reports",
+        "reportFilename": "report",
+        "overwrite": false,
+        "chromeWebSecurity": false
+      },
+      "version": "4.1.0"
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import CypressAnalytics from './CypressAnalytics';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CypressAnalytics />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './CypressAnalytics.css';
 import {CartesianGrid, Line, LineChart, XAxis, YAxis} from "recharts";
 const data = [
     {
@@ -25,9 +24,9 @@ const data = [
         name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
     },
 ];
-function App() {
+function CypressAnalytics() {
   return (
-    <div className="App">
+    <div className="CypressAnalytics">
       <LineChart width={500} height={300} data={data}>
         <XAxis dataKey="name"/>
         <YAxis/>
@@ -39,4 +38,4 @@ function App() {
   );
 }
 
-export default App;
+export default CypressAnalytics;

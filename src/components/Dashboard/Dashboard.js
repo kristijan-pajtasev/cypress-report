@@ -3,9 +3,12 @@ import PieChart from '../PieChart'
 
 function Dashboard(props) {
     const {data} = props;
+    const {stats} = data;
 
-    const pieData = [{name:"Pass", value: 2},
-    {name:"Fail", value: 1}]
+    const pieData = [
+        {name:"Pass", value: stats.passes},
+        {name:"Fail", value: stats.failures}
+    ]
 
 
     return (
@@ -13,7 +16,7 @@ function Dashboard(props) {
 
             <div>Dashboard</div>
             <div>
-                <PieChart data={pieData}/>
+                <PieChart totalTests={stats.tests} data={pieData}/>
             </div>
         </div>
     )

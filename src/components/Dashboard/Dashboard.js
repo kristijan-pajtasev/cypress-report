@@ -6,10 +6,11 @@ function Dashboard(props) {
     const {stats} = data;
 
     const pieData = [
-        {name:"Pass", value: stats.passes},
-        {name:"Fail", value: stats.failures}
+        {name: "Pass", value: stats.passes},
+        {name: "Fail", value: stats.failures}
     ]
 
+    const suites = [pieData, pieData, pieData]
 
     return (
         <div>
@@ -17,6 +18,16 @@ function Dashboard(props) {
             <div>Dashboard</div>
             <div>
                 <PieChart totalTests={stats.tests} data={pieData}/>
+            </div>
+            <div>
+                Suites
+                <ul>
+                    {suites.map((suite, index) =>
+                        (<li key={`suite-${index}`}>
+                            <PieChart totalTests={stats.tests} data={suite}/>
+                        </li>)
+                    )}
+                </ul>
             </div>
         </div>
     )

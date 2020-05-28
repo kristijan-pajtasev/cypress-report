@@ -22,8 +22,8 @@ function MyReporter(runner) {
         const testNamespace = [];
         let parent = test.parent;
         while(parent) {
-            if(test.title === "" && !!test.file) testNamespace.push(test.file)
-            else testNamespace.push(test.title);
+            if(parent.title === "" && !!parent.file) testNamespace.push(parent.file)
+            else testNamespace.push(parent.title);
             parent = parent.parent;
         }
         return testNamespace.reverse();

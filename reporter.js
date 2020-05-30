@@ -10,8 +10,28 @@ function MyReporter(runner) {
     var passes = 0;
     var failures = 0;
 
-    const addPassTest = (test, namespace) => {
+    const addPassTest = (test, namespace, resultsObject) => {
         // todo implement pass test
+        if(namespace.length > 0) {
+            const firstNamespace = namespace[0];
+            if(!resultsObject[firstNamespace]) {
+                resultsObject[firstNamespace] = {
+                    title: firstNamespace,
+                    pass: 0,
+                    fail: 0,
+                    total: 0,
+                    tests: []
+                }
+            }
+            resultsObject[firstNamespace].pass ++;
+            resultsObject[firstNamespace].total ++;
+            addPassTest(test, namespace.slice(1), resultsObject[firstNamespace])
+        } else {
+            resultsObject.tests.push({
+                title: test.title,
+                passed: true
+            })
+        }
     }
 
     const addFailTest = (test, namespace, errorMessage, resultsObject) => {
@@ -29,7 +49,7 @@ function MyReporter(runner) {
             }
             resultsObject[firstNamespace].fail ++;
             resultsObject[firstNamespace].total ++;
-            addPassTest(test, namespace.slice(1), errorMessage, resultsObject[firstNamespace])
+            addFailTest(test, namespace.slice(1), errorMessage, resultsObject[firstNamespace])
         } else {
             resultsObject.tests.push({
                 title: test.title,
@@ -52,7 +72,7 @@ function MyReporter(runner) {
 
     runner.on('pass', function(test) {
         passes++;
-        addPassTest(test, getTestNamespace(test));
+        addPassTest(test, getTestNamespace(test), results);
         console.log('testNamespace: ', getTestNamespace(test), results);
         console.log('pass: %s', test.parent.title);
         // console.log('pass: %s', test.fullTitle()); //

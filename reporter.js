@@ -1,8 +1,3 @@
-
-// var mocha = require('mocha');
-
-console.log("reporter cusom one EEEEEEEEEEEEEEEEEEEEEEE")
-
 function MyReporter(runner) {
     console.log("reporter created")
     // mocha.reporters.Base.call(this, runner);

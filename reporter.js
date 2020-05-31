@@ -27,6 +27,7 @@ function MyReporter(runner) {
             resultsObject[firstNamespace].total ++;
             addPassTest(test, namespace.slice(1), resultsObject[firstNamespace])
         } else {
+            results.pass = results.pass ? results.pass + 1 : 1;
             resultsObject.tests.push({
                 title: test.title,
                 passed: true
@@ -51,6 +52,7 @@ function MyReporter(runner) {
             resultsObject[firstNamespace].total ++;
             addFailTest(test, namespace.slice(1), errorMessage, resultsObject[firstNamespace])
         } else {
+            results.fail = results.fail ? results.fail + 1 : 1;
             resultsObject.tests.push({
                 title: test.title,
                 passed: false,

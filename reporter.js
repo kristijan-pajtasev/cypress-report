@@ -1,9 +1,12 @@
+const fs = require('fs');
+const results = {}
+
 function MyReporter(runner) {
-    console.log("reporter created")
     // mocha.reporters.Base.call(this, runner);
-    const results = {}
     var passes = 0;
     var failures = 0;
+
+    if(fs.existsSync('./results.json')) fs.unlinkSync('./results.json')
 
     const addPassTest = (test, namespace, resultsObject) => {
         // todo implement pass test
@@ -85,6 +88,7 @@ function MyReporter(runner) {
     runner.on('end', function(args) {
         console.log('end: %d/%d', passes, passes + failures);
         console.log('result object: ', results);
+        fs.writeFileSync('./results.json', JSON.stringify(results));
     });
 }
 module.exports = MyReporter;

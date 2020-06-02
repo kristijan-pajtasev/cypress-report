@@ -5,7 +5,7 @@ function PieChartComponent(props) {
     const {data} = props;
     return (
         <div>
-            <PieChart width={730} height={250}>
+            <PieChart width={500} height={250}>
                 <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8">
                     <Cell fill='#00C49F' />
                     <Cell fill='#FF8042' />

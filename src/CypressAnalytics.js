@@ -1,7 +1,7 @@
 import React from 'react';
 import Dashboard from "./components/Dashboard";
 import './CypressAnalytics.css';
-import data from './output.json'
+import data from './results.json'
 
 function CypressAnalytics() {
   return (

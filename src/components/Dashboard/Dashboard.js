@@ -1,13 +1,14 @@
 import React from 'react';
 import PieChart from '../PieChart'
+import './Dashboard.css';
 
 function Dashboard(props) {
     const {data} = props;
-    const {stats} = data;
+    const stats = data;
 
     const pieData = [
-        {name: "Pass", value: stats.passes},
-        {name: "Fail", value: stats.failures}
+        {name: "Pass", value: stats.pass},
+        {name: "Fail", value: stats.fail}
     ]
 
     const suites = [pieData, pieData, pieData]
@@ -16,18 +17,20 @@ function Dashboard(props) {
         <div>
 
             <div>Dashboard</div>
-            <div>
-                <PieChart totalTests={stats.tests} data={pieData}/>
-            </div>
-            <div>
-                Suites
-                <ul>
-                    {suites.map((suite, index) =>
-                        (<li key={`suite-${index}`}>
-                            <PieChart totalTests={stats.tests} data={suite}/>
-                        </li>)
-                    )}
-                </ul>
+            <div className='DashboardWidgetContainer'>
+                <div className='overallResults'>
+                    <PieChart totalTests={stats.tests} data={pieData}/>
+                </div>
+                <div className='suites'>
+                    Suites
+                    {/*<ul>*/}
+                    {/*    {suites.map((suite, index) =>*/}
+                    {/*        (<li key={`suite-${index}`}>*/}
+                    {/*            <PieChart totalTests={stats.tests} data={suite}/>*/}
+                    {/*        </li>)*/}
+                    {/*    )}*/}
+                    {/*</ul>*/}
+                </div>
             </div>
         </div>
     )

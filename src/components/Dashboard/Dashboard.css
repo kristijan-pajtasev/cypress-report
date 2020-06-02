@@ -1,0 +1,14 @@
+.DashboardWidgetContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.DashboardWidgetContainer>.overallResults {
+    flex: 1;
+    overflow: hidden;
+}
+
+.DashboardWidgetContainer>.suites {
+    flex: 2;
+    overflow: hidden;
+}

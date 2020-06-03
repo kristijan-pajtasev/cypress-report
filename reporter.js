@@ -1,7 +1,7 @@
 const fs = require('fs');
 const results = {}
 
-function MyReporter(runner) {
+function MyReporter(runner, options) {
     // mocha.reporters.Base.call(this, runner);
     var passes = 0;
     var failures = 0;
@@ -15,6 +15,7 @@ function MyReporter(runner) {
             if(!resultsObject[firstNamespace]) {
                 resultsObject[firstNamespace] = {
                     title: firstNamespace,
+                    fullTitle: test.fullTitle(),
                     pass: 0,
                     fail: 0,
                     total: 0,
@@ -28,6 +29,7 @@ function MyReporter(runner) {
             results.pass = results.pass ? results.pass + 1 : 1;
             resultsObject.tests.push({
                 title: test.title,
+                fullTitle: test.fullTitle(),
                 passed: true
             })
         }
@@ -40,6 +42,7 @@ function MyReporter(runner) {
             if(!resultsObject[firstNamespace]) {
                 resultsObject[firstNamespace] = {
                     title: firstNamespace,
+                    fullTitle: test.fullTitle(),
                     pass: 0,
                     fail: 0,
                     total: 0,
@@ -53,6 +56,7 @@ function MyReporter(runner) {
             results.fail = results.fail ? results.fail + 1 : 1;
             resultsObject.tests.push({
                 title: test.title,
+                fullTitle: test.fullTitle(),
                 passed: false,
                 message: errorMessage
             })

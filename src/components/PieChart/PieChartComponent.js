@@ -6,7 +6,6 @@ const RADIAN = Math.PI / 180;
 function PieChartComponent(props) {
     const {data} = props;
     const renderCustomizedLabel = function({cx, cy, midAngle, innerRadius, outerRadius, value}) {
-        console.log(arguments)
         const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);

@@ -2,14 +2,16 @@ const fs = require('fs');
 const results = {}
 
 function MyReporter(runner, options) {
-    // mocha.reporters.Base.call(this, runner);
-    var passes = 0;
-    var failures = 0;
+    const directory = process.argv[process.argv.indexOf("--cwd")+1].replace(/\\/g, "/");
+    let passes = 0;
+    let failures = 0;
 
-    if(fs.existsSync('./results.json')) fs.unlinkSync('./results.json')
+    const reportDir = options.reporterOptions.reportDir || "src";
+    const reportName = options.reporterOptions.reportName || "results.json";
+
+    if(fs.existsSync(`${directory}/${reportDir}/${reportName}`)) fs.unlinkSync(`${directory}/${reportDir}/${reportName}`)
 
     const addPassTest = (test, namespace, resultsObject) => {
-        // todo implement pass test
         if(namespace.length > 0) {
             const firstNamespace = namespace[0];
             if(!resultsObject[firstNamespace]) {
@@ -36,7 +38,6 @@ function MyReporter(runner, options) {
     }
 
     const addFailTest = (test, namespace, errorMessage, resultsObject) => {
-        // todo implement pass test
         if(namespace.length > 0) {
             const firstNamespace = namespace[0];
             if(!resultsObject[firstNamespace]) {
@@ -77,22 +78,15 @@ function MyReporter(runner, options) {
     runner.on('pass', function(test) {
         passes++;
         addPassTest(test, getTestNamespace(test), results);
-        console.log('testNamespace: ', getTestNamespace(test), results);
-        console.log('pass: %s', test.parent.title);
-        // console.log('pass: %s', test.fullTitle()); //
     });
 
     runner.on('fail', function(test, err) {
         failures++;
         addFailTest(test, getTestNamespace(test), err.message, results);
-        console.log('testNamespace: ', getTestNamespace(test));
-        console.log('fail: %s -- error: %s', test.fullTitle(), err.message);
     });
 
     runner.on('end', function(args) {
-        console.log('end: %d/%d', passes, passes + failures);
-        console.log('result object: ', results);
-        fs.writeFileSync('./results.json', JSON.stringify(results));
+        fs.writeFileSync(`${directory}/${reportDir}/${reportName}`, JSON.stringify(results));
     });
 }
 module.exports = MyReporter;

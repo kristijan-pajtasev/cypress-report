@@ -1,3 +1,7 @@
 {
-  "reporter": "reporter.js"
+  "reporter": "reporter.js",
+  "reporterOptions": {
+    "reportDir": "src",
+    "reportName":"results.json"
+  }
 }

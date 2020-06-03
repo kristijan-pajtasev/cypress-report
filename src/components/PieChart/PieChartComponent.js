@@ -24,17 +24,9 @@ function PieChartComponent(props) {
                      labelLine={false} label={renderCustomizedLabel}>
                     <Cell fill='#81C784'/>
                     <Cell fill='#FF8A65'/>
-
-
                 </Pie>
-                {/*<Legend content={renderLegend} />*/}
-                {/*<Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80}*/}
-                {/*     fill="#82ca9d" label/>*/}
-                {/*<Legend content={renderLegend} />*/}
                 <Legend verticalAlign="bottom" height={36}/>
             </PieChart>
-            {/*<Legend verticalAlign="bottom" height={36}/>*/}
-            {/*<Legend content={renderLegend} />*/}
         </div>
     )
 }

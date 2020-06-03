@@ -63,7 +63,7 @@ function MyReporter(runner) {
         const testNamespace = [];
         let parent = test.parent;
         while(parent) {
-            if(parent.title === "" && !!parent.file) testNamespace.push(parent.file)
+            if(parent.title === "" && !!parent.file) testNamespace.push(parent.file.replace("cypress\\integration\\", ""));
             else testNamespace.push(parent.title);
             parent = parent.parent;
         }

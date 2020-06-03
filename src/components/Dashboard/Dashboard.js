@@ -1,5 +1,6 @@
 import React from 'react';
 import PieChart from '../PieChart'
+import SpecsList from '../SpecsList'
 import './Dashboard.css';
 
 function Dashboard(props) {
@@ -22,16 +23,7 @@ function Dashboard(props) {
                     <PieChart totalTests={stats.tests} data={pieData}/>
                 </div>
                 <div className='suites'>
-                    <div>Specs:</div>
-                    <ul>
-                        {specs.map((spec, index) =>
-                            (<li key={`suite-${index}`} className={stats[spec].fail > 0 ? 'error' : ''}>
-                                <div>{spec}</div>
-                                <div>Passed: {stats[spec].pass}/{stats[spec].total}</div>
-                                {/*<PieChart totalTests={stats.tests} data={suite}/>*/}
-                            </li>)
-                        )}
-                    </ul>
+                    <SpecsList stats={stats} specs={specs}/>
                 </div>
             </div>
         </div>

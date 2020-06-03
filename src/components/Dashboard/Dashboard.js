@@ -13,14 +13,13 @@ function Dashboard(props) {
 
     const specs = Object.keys(stats).filter(e => !["tests", "pass", "fail"].includes(e));
 
-    const suites = [pieData, pieData, pieData]
-
     return (
         <div>
 
             <div>Dashboard</div>
             <div className='DashboardWidgetContainer'>
                 <div className='overallResults'>
+                    <div>{stats.pass} / {stats.pass + stats.fail}</div>
                     <PieChart totalTests={stats.tests} data={pieData}/>
                 </div>
                 <div className='suites'>

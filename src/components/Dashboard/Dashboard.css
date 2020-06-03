@@ -11,4 +11,32 @@
 .DashboardWidgetContainer>.suites {
     flex: 2;
     overflow: hidden;
+    text-align: left;
+    padding: 20px 20px;
+}
+
+.DashboardWidgetContainer>.suites ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+
+.DashboardWidgetContainer>.suites ul li {
+    margin-bottom: 10px;
+    background: rgba(129, 199, 132, .6);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.DashboardWidgetContainer>.suites ul li.error {
+    background: rgba(255, 138, 101, .6);
+}
+
+.DashboardWidgetContainer>.suites ul li>* {
+    flex: 1;
+}
+
+.DashboardWidgetContainer>.suites ul li>*:last-of-type {
+    text-align: right;
 }

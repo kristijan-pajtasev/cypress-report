@@ -12,7 +12,7 @@ function Dashboard(props) {
     ]
 
     const specs = Object.keys(stats).filter(e => !["tests", "pass", "fail"].includes(e));
-console.log(specs)
+
     const suites = [pieData, pieData, pieData]
 
     return (
@@ -24,14 +24,12 @@ console.log(specs)
                     <PieChart totalTests={stats.tests} data={pieData}/>
                 </div>
                 <div className='suites'>
-                    specs
+                    <div>Specs:</div>
                     <ul>
                         {specs.map((spec, index) =>
-                            (<li key={`suite-${index}`}>
+                            (<li key={`suite-${index}`} className={stats[spec].fail > 0 ? 'error' : ''}>
                                 <div>{spec}</div>
-                                <div>Pass: {stats[spec].pass}</div>
-                                <div>Fail: {stats[spec].fail}</div>
-                                <div>Total: {stats[spec].total}</div>
+                                <div>Passed: {stats[spec].pass}/{stats[spec].total}</div>
                                 {/*<PieChart totalTests={stats.tests} data={suite}/>*/}
                             </li>)
                         )}

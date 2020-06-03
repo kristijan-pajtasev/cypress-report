@@ -19,7 +19,6 @@ function Dashboard(props) {
             <div>Dashboard</div>
             <div className='DashboardWidgetContainer'>
                 <div className='overallResults'>
-                    <div>{stats.pass} / {stats.pass + stats.fail}</div>
                     <PieChart totalTests={stats.tests} data={pieData}/>
                 </div>
                 <div className='suites'>

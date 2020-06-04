@@ -17,11 +17,15 @@ function Dashboard(props) {
     return (
         <div>
             <div className='DashboardWidgetContainer'>
-                <div className='overallResults'>
-                    <PieChart totalTests={stats.tests} data={pieData}/>
+                <div className='DashboardWidgetContainerRow'>
+                    <div className='overallResults'>
+                        <PieChart totalTests={stats.tests} data={pieData}/>
+                    </div>
+                    <div className='suites'>
+                        <SpecsList stats={stats} specs={specs}/>
+                    </div>
                 </div>
-                <div className='suites'>
-                    <SpecsList stats={stats} specs={specs}/>
+                <div className='DashboardWidgetContainerRow'>
                 </div>
             </div>
         </div>

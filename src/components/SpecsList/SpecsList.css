@@ -1,3 +1,62 @@
 .SpecsList {
-
+    list-style: none;
+    text-align: left;
+    padding: 0;
 }
+
+.SpecsList__Spec {
+    flex: 2;
+    overflow: hidden;
+    text-align: left;
+    margin-bottom: 10px;
+    border: thin solid rgba(129, 199, 132, .6);
+}
+
+.SpecsList__Spec__Header {
+    background: rgba(129, 199, 132, .6);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.SpecsList__Spec.error {
+    border: thin solid rgba(255, 138, 101, .6);
+}
+
+.SpecsList__Spec.error .SpecsList__Spec__Header {
+    background: rgba(255, 138, 101, .6);
+}
+
+.SpecsList__Spec__Header > * {
+    flex: 1
+}
+
+.SpecsList__Spec__Header > *:last-of-type {
+    text-align: right;
+}
+
+/*.DashboardWidgetContainer>.suites ul {*/
+/*    list-style: none;*/
+/*    text-align: left;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.DashboardWidgetContainer>.suites ul li {*/
+/*    margin-bottom: 10px;*/
+/*    background: rgba(129, 199, 132, .6);*/
+/*    padding: 20px;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*}*/
+
+/*.DashboardWidgetContainer>.suites ul li.error {*/
+/*    background: rgba(255, 138, 101, .6);*/
+/*}*/
+
+/*.DashboardWidgetContainer>.suites ul li>* {*/
+/*    flex: 1;*/
+/*}*/
+
+/*.DashboardWidgetContainer>.suites ul li>*:last-of-type {*/
+/*    text-align: right;*/
+/*}*/

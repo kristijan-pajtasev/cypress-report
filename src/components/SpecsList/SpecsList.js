@@ -22,11 +22,13 @@ const SpecsList = (props) => {
     }
 
     return (
-        <ul>
+        <ul className='SpecsList'>
             {specs.map((spec, index) =>
-                (<li key={`suite-${index}`} className={stats[spec].fail > 0 ? 'error' : ''}>
-                    <div>{spec}</div>
-                    <div>Passed: {stats[spec].pass}/{stats[spec].total}</div>
+                (<li key={`suite-${index}`} className={['SpecsList__Spec', stats[spec].fail > 0 ? 'error' : ''].join(" ")}>
+                    <div className={'SpecsList__Spec__Header'}>
+                        <div>{spec}</div>
+                        <div>Passed: {stats[spec].pass}/{stats[spec].total}</div>
+                    </div>
                     <div>
                         {JSON.stringify(getTestListForSpec(stats[spec]))}
                     </div>

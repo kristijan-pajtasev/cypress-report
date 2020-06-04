@@ -1,3 +1,56 @@
 .TestList {
+    list-style: none;
+    text-align: left;
+    padding: 20px;
+}
 
+.TestList__Spec {
+    flex: 2;
+    overflow: hidden;
+    text-align: left;
+    margin-bottom: 10px;
+    border: thin solid rgba(129, 199, 132, .6);
+}
+
+.TestList__Spec__Header {
+    background: rgba(129, 199, 132, .6);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.TestList__Spec.error {
+    border: thin solid rgba(255, 138, 101, .6);
+}
+
+.TestList__Spec.error .TestList__Spec__Header {
+    background: rgba(255, 138, 101, .6);
+}
+
+.TestList__Spec__Header > * {
+    flex: 1;
+    font-weight: 600;
+}
+
+.TestList__Spec__Header > *:last-of-type {
+    text-align: right;
+}
+
+.TestList__Spec__TestList {
+    list-style: none;
+    padding: 20px;
+}
+
+.TestList__Spec__TestList__Test {
+    margin-bottom: 10px;
+}
+
+.TestList__Spec__TestList__Test .material-icons.error {
+    color: rgb(255, 138, 101);
+}
+
+.TestList__Spec__TestList__Test .material-icons {
+    margin-right: 10px;
+    font-weight: 600;
+    color: rgb(129, 199, 132);
 }

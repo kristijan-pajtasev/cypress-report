@@ -33,7 +33,7 @@ const SpecsList = (props) => {
                         <ul className='SpecsList__Spec__TestList'>
                             {getTestListForSpec(stats[spec]).map(
                                 test => (
-                                    <li className={['SpecsList__Spec__TestList__Test', test.passed ? '' : 'error'].join(" ")}>
+                                    <li key={`suite-${index}-${test.title}`} className={['SpecsList__Spec__TestList__Test', test.passed ? '' : 'error'].join(" ")}>
                                     <span className={["material-icons", test.passed ? '' : 'error'].join(' ')}>
                                         {test.passed ? 'check' : 'close'}
                                         </span>{test.title}

@@ -1,5 +1,10 @@
 .CypressAnalytics {
   text-align: center;
+  height: 100%;
+}
+
+.CypressAnalytics>div {
+  height: 100%;
 }
 
 .CypressAnalytics-logo {

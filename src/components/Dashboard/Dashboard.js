@@ -2,6 +2,7 @@ import React from 'react';
 import PieChart from '../PieChart'
 import SpecsList from '../SpecsList'
 import './Dashboard.css';
+import TestsContainer from "../TestsContainer";
 
 function Dashboard(props) {
     const {data} = props;
@@ -26,6 +27,7 @@ function Dashboard(props) {
                     </div>
                 </div>
                 <div className='DashboardWidgetContainerRow'>
+                    <TestsContainer stats={stats} specs={specs} />
                 </div>
             </div>
         </div>

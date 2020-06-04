@@ -30,16 +30,16 @@ const SpecsList = (props) => {
                             <div>{spec}</div>
                             <div>Passed: {stats[spec].pass}/{stats[spec].total}</div>
                         </div>
-                        <ul className='SpecsList__Spec__TestList'>
-                            {getTestListForSpec(stats[spec]).map(
-                                test => (
-                                    <li key={`suite-${index}-${test.title}`} className={['SpecsList__Spec__TestList__Test', test.passed ? '' : 'error'].join(" ")}>
-                                    <span className={["material-icons", test.passed ? '' : 'error'].join(' ')}>
-                                        {test.passed ? 'check' : 'close'}
-                                        </span>{test.title}
-                                    </li>)
-                            )}
-                        </ul>
+                        {/*<ul className='SpecsList__Spec__TestList'>*/}
+                        {/*    {getTestListForSpec(stats[spec]).map(*/}
+                        {/*        test => (*/}
+                        {/*            <li key={`suite-${index}-${test.title}`} className={['SpecsList__Spec__TestList__Test', test.passed ? '' : 'error'].join(" ")}>*/}
+                        {/*            <span className={["material-icons", test.passed ? '' : 'error'].join(' ')}>*/}
+                        {/*                {test.passed ? 'check' : 'close'}*/}
+                        {/*                </span>{test.title}*/}
+                        {/*            </li>)*/}
+                        {/*    )}*/}
+                        {/*</ul>*/}
                     </li>)
             )}
         </ul>

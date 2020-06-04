@@ -16,8 +16,6 @@ function Dashboard(props) {
 
     return (
         <div>
-
-            <div>Dashboard</div>
             <div className='DashboardWidgetContainer'>
                 <div className='overallResults'>
                     <PieChart totalTests={stats.tests} data={pieData}/>

@@ -5,14 +5,14 @@ const RADIAN = Math.PI / 180;
 
 function PieChartComponent(props) {
     const {data} = props;
-    const renderCustomizedLabel = function({cx, cy, midAngle, innerRadius, outerRadius, value}) {
+    const renderCustomizedLabel = function({cx, cy, midAngle, innerRadius, outerRadius, value, percent}) {
         const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-        const x = cx + radius * Math.cos(-midAngle * RADIAN);
+        const x = cx + radius * Math.cos(-midAngle * RADIAN) / 2;
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
         return (
             <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" fontSize={25}>
-                {`${value}`}
+                {`${(percent * 100).toFixed(0)}% (${value})`}
             </text>
         );
     };

@@ -7,7 +7,8 @@ const TestList = (props) => {
     const getTestListForSpec = (spec, tests = []) => {
         if (spec.tests && spec.tests.length > 0) tests = [...tests, spec.tests.map(test => ({
             title: test.fullTitle,
-            passed: test.passed
+            passed: test.passed,
+            message: test.message
         }))]
 
         const suites = Object.keys(spec).filter(key => !["tests", "pass", "fail", "total", "title", "fullTitle"].includes(key));
@@ -36,7 +37,7 @@ const TestList = (props) => {
                                 <span className={["material-icons", test.passed ? '' : 'error'].join(' ')}>
                                     {test.passed ? 'check' : 'close'}
                                     </span>
-                                    {test.title}
+                                    {test.title} {test.message ? `- ${test.message}` : ''}
                                 </li>)
                         )}
                     </ul>

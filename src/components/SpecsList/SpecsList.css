@@ -2,6 +2,8 @@
     list-style: none;
     text-align: left;
     padding: 0;
+    height: 100%;
+    overflow: auto;
 }
 
 .SpecsList__Spec {

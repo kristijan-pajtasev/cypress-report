@@ -4,6 +4,7 @@
     padding: 0;
     height: 100%;
     overflow: auto;
+    margin: 0;
 }
 
 .SpecsList__Spec {
@@ -12,6 +13,10 @@
     text-align: left;
     margin-bottom: 10px;
     border: thin solid rgba(129, 199, 132, .6);
+}
+
+.SpecsList__Spec:last-of-type {
+    margin-bottom: 0;
 }
 
 .SpecsList__Spec__Header {

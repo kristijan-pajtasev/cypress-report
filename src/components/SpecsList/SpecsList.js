@@ -1,5 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './SpecsList.css';
+
+const startScroll = (maxAmount, selector) => {
+    const element = document.querySelector(selector);
+    let currentScrollOffset = 0;
+    const scroll = (currentAmount) => {
+        setTimeout(() => {
+            // element.scroll(0, currentAmount);
+            // const nextAmount = currentAmount + 10;
+            // if(nextAmount > maxAmount) scroll(0)
+            // else scroll(nextAmount)
+        }, 100)
+    }
+
+    scroll(currentScrollOffset);
+}
 
 const SpecsList = (props) => {
     const {specs, stats} = props;
@@ -20,6 +35,15 @@ const SpecsList = (props) => {
 
         return tests.flat();
     }
+
+    useEffect(() => {
+
+        const containerHeight = document.querySelector(".suites").clientHeight;
+        const listHeight = document.querySelector(".SpecsList").clientHeight
+        const totalScrollDistance = containerHeight - listHeight;
+        startScroll(totalScrollDistance, ".SpecsList")
+        // if(listHeight > )
+    }, [])
 
     return (
         <ul className='SpecsList'>

@@ -3,6 +3,7 @@ import PieChart from '../PieChart'
 import SpecsList from '../SpecsList'
 import './Dashboard.css';
 import TestsContainer from "../TestsContainer";
+import AutoScroll from "../AutoScroll";
 
 function Dashboard(props) {
     const {data} = props;
@@ -23,11 +24,13 @@ function Dashboard(props) {
                         <PieChart totalTests={stats.tests} data={pieData}/>
                     </div>
                     <div className='suites'>
-                        <SpecsList stats={stats} specs={specs}/>
+                        <AutoScroll>
+                            <SpecsList stats={stats} specs={specs}/>
+                        </AutoScroll>
                     </div>
                 </div>
                 <div className='DashboardWidgetContainerRow'>
-                    <TestsContainer stats={stats} specs={specs} />
+                    <TestsContainer stats={stats} specs={specs}/>
                 </div>
             </div>
         </div>

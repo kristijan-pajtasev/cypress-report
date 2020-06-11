@@ -4,7 +4,6 @@ import TestList from "../TestList";
 
 const TestsContainer = (props) => {
     const {specs, stats} = props;
-    console.log(props);
 
     return (
         <div className="TestsContainer">

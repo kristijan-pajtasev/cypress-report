@@ -1,5 +1,6 @@
 import React from 'react';
 import './TestList.css';
+import AutoScroll from "../AutoScroll";
 
 const TestList = (props) => {
     const {spec, specName} = props;
@@ -24,16 +25,18 @@ const TestList = (props) => {
 
     return (
         <div className='TestList'>
-                <div
-                     className={['TestList__Spec', spec.fail > 0 ? 'error' : ''].join(" ")}>
-                    <div className={'TestList__Spec__Header'}>
-                        <div>{specName}</div>
-                        <div>Passed: {spec.pass}/{spec.total}</div>
-                    </div>
+            <div
+                className={['TestList__Spec', spec.fail > 0 ? 'error' : ''].join(" ")}>
+                <div className={'TestList__Spec__Header'}>
+                    <div>{specName}</div>
+                    <div>Passed: {spec.pass}/{spec.total}</div>
+                </div>
+                <AutoScroll onEnd={() => console.log("on end")}>
                     <ul className='TestList__Spec__TestList'>
                         {getTestListForSpec(spec).map(
                             (test, index) => (
-                                <li key={`suite-${index}-${test.title}`} className={['TestList__Spec__TestList__Test', test.passed ? '' : 'error'].join(" ")}>
+                                <li key={`suite-${index}-${test.title}`}
+                                    className={['TestList__Spec__TestList__Test', test.passed ? '' : 'error'].join(" ")}>
                                 <span className={["material-icons", test.passed ? '' : 'error'].join(' ')}>
                                     {test.passed ? 'check' : 'close'}
                                     </span>
@@ -41,7 +44,8 @@ const TestList = (props) => {
                                 </li>)
                         )}
                     </ul>
-                </div>
+                </AutoScroll>
+            </div>
         </div>
     )
 }

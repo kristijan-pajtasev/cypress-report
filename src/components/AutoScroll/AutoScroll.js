@@ -19,7 +19,13 @@ const AutoScroll = (props) => {
     useEffect(() => {
         const containerHeight = document.querySelector(`#${id}`).getBoundingClientRect().height;
         const elementHeight = document.querySelector(`#${id}>*`).getBoundingClientRect().height;
-        scroll(document.querySelector(`#${id}>*`), 0, elementHeight - containerHeight);
+        if(elementHeight > containerHeight)
+            scroll(document.querySelector(`#${id}>*`), 0, elementHeight - containerHeight);
+        else if(elementHeight <= containerHeight && onEnd) {
+            setTimeout(() => {
+                onEnd();
+            }, 3000)
+        }
     }, [])
 
 

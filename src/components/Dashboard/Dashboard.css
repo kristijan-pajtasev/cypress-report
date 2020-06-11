@@ -11,6 +11,18 @@
     overflow: hidden;
 }
 
+.DashboardTitleContainer {
+    height: 50px;
+    max-height: 50px;
+    padding: 8px 16px;
+    font-size: 21px;
+}
+
+.DashboardTitle {
+    width: 100%;
+    text-align: center;
+}
+
 .DashboardWidgetContainerRow>.overallResults {
     flex: 1;
     overflow: hidden;

@@ -28,7 +28,7 @@ function CypressAnalytics() {
 
     return (
         <div className="CypressAnalytics">
-            {data ? <Dashboard data={data}/> : <></>}
+            {(data && config) ? <Dashboard config={config} data={data}/> : <></>}
         </div>
     );
 }

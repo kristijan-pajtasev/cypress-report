@@ -24,7 +24,7 @@ function Dashboard(props) {
                         <PieChart totalTests={stats.tests} data={pieData}/>
                     </div>
                     <div className='suites'>
-                        <AutoScroll>
+                        <AutoScroll data={stats}>
                             <SpecsList stats={stats} specs={specs}/>
                         </AutoScroll>
                     </div>

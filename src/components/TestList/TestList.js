@@ -23,6 +23,10 @@ const TestList = (props) => {
         return tests.flat();
     }
 
+    const onEnd = () => {
+        if(props.onEnd) props.onEnd();
+    }
+
     return (
         <div className='TestList'>
             <div
@@ -31,7 +35,7 @@ const TestList = (props) => {
                     <div>{specName}</div>
                     <div>Passed: {spec.pass}/{spec.total}</div>
                 </div>
-                <AutoScroll onEnd={() => console.log("on end")}>
+                <AutoScroll onEnd={onEnd} data={spec}>
                     <ul className='TestList__Spec__TestList'>
                         {getTestListForSpec(spec).map(
                             (test, index) => (

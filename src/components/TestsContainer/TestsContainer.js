@@ -8,15 +8,15 @@ const TestsContainer = (props) => {
     const [firstIndex, setFirstIndex] = useState(0);
     const [secondIndex, setSecondIndex] = useState(1);
 
-    const showNextSpec = (setFunction) => {
-        const nextIndex = (Math.max(firstIndex, secondIndex) + 1) % numOfElements;
-        setFunction(nextIndex);
+    const showNextSpec = (setIndex) => {
+        if(setIndex === "FIRST") setFirstIndex((firstIndex + 2) % numOfElements);
+        else setSecondIndex((secondIndex + 2) % numOfElements);
     }
 
     return (
         <div className="TestsContainer">
-            {numOfElements > 0 && <TestList onEnd={showNextSpec.bind(null, setFirstIndex)} spec={stats[specs[firstIndex]]} specName={specs[firstIndex]}/>}
-            {numOfElements > 1 && <TestList onEnd={showNextSpec.bind(null, setSecondIndex)} spec={stats[specs[secondIndex]]} specName={specs[secondIndex]}/>}
+            {numOfElements > 0 && <TestList onEnd={showNextSpec.bind(null, "FIRST")} spec={stats[specs[firstIndex]]} specName={specs[firstIndex]}/>}
+            {numOfElements > 1 && <TestList onEnd={showNextSpec.bind(null, "SECOND")} spec={stats[specs[secondIndex]]} specName={specs[secondIndex]}/>}
         </div>
     )
 

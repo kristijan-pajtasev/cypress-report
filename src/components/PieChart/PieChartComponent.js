@@ -25,7 +25,6 @@ function PieChartComponent(props) {
 
     useEffect(() => {
         const dimensions = document.getElementById(id).getBoundingClientRect()
-        console.log(dimensions)
         setSize({
             width: dimensions.width,
             height: dimensions.height

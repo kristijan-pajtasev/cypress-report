@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fs-extra": "^9.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

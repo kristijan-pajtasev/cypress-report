@@ -1,7 +1,7 @@
 {
   "name": "cypress-dashboard",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "main": "reporter.js",
   "author": "Kristijan Pajtasev",
   "license": "MIT",

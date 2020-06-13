@@ -101,7 +101,7 @@ function MyReporter(runner, options) {
             "refreshDelay": 300000
         }
         if(isLocalDeployment) {
-            fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain)
+            fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, `${directory}/${reportDir}`)
                 .replace(/<script type="text\/javascript"><\/script>/gi, `<script type='text/javascript'>window.config=${JSON.stringify(config)};window.results=${JSON.stringify(results)}</script>`))
         } else {
             fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain))

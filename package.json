@@ -1,7 +1,10 @@
 {
-  "name": "cypress-report",
+  "name": "@kpajtasev/cypress-reports",
   "version": "0.1.0",
   "private": true,
+  "main": "reporter.js",
+  "author": "Kristijan Pajtasev",
+  "license": "MIT",
   "dependencies": {
     "fs-extra": "^9.0.1"
   },

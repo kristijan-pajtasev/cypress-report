@@ -1,6 +1,7 @@
 {
   "reporter": "reporter.js",
   "reporterOptions": {
-    "reportDir": "report"
+    "reportDir": "report",
+    "staticFilesUrl": "http://127.0.0.1:3000"
   }
 }

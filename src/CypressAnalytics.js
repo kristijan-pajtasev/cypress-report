@@ -13,10 +13,10 @@ function CypressAnalytics() {
     const [config, setConfig] = useState(null);
 
     useEffect(() => {
-        fetch('/results.json').then(res => {
+        fetch('results.json').then(res => {
             res.json().then(setData)
         })
-        fetch('/config.json').then(res => {
+        fetch('config.json').then(res => {
             res.json().then(c => {
                 if(c.refreshDelay) reload(c.refreshDelay)
                 setConfig(c)

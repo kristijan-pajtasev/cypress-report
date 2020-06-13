@@ -9,11 +9,10 @@ function MyReporter(runner, options) {
 
     const reportDir = options.reporterOptions.reportDir || "src";
     const reportName = options.reporterOptions.reportName || "results.json";
-    const staticFilesDomain = options.reporterOptions.staticUrl || `${directory}/${reportDir}`;
+    const staticFilesDomain = options.reporterOptions.staticFilesUrl || "";
 
     // this requires node v12+, rmdirSync
     if (fs.existsSync(reportDir)) fs.rmdirSync(reportDir, {recursive: true});
-    fs.mkdirSync(reportDir)
     fsExtra.copySync("build", reportDir)
 
     if (fs.existsSync(`${directory}/${reportDir}/${reportName}`)) fs.unlinkSync(`${directory}/${reportDir}/${reportName}`)
@@ -94,7 +93,9 @@ function MyReporter(runner, options) {
 
     runner.on('end', function (args) {
         const indexFile = fs.readFileSync(`${reportDir}/index.html`).toString();
-        fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain))
+        const obj = {test:'test'}
+        fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain)
+            .replace(/<script type="text\/javascript"><\/script>/gi, `<script type='text/javascript'>window.value=${JSON.stringify(obj)}</script>`))
         fs.writeFileSync(`${directory}/${reportDir}/${reportName}`, JSON.stringify(results));
     });
 }

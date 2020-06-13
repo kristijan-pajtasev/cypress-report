@@ -13,18 +13,21 @@ function CypressAnalytics() {
     const [config, setConfig] = useState(null);
 
     useEffect(() => {
-        fetch('results.json').then(res => {
-            res.json().then(setData)
-        })
-        fetch('config.json').then(res => {
-            res.json().then(c => {
-                if(c.refreshDelay) reload(c.refreshDelay)
-                setConfig(c)
+        if (window.results) setData(window.results)
+        else
+            fetch('results.json').then(res => {
+                res.json().then(setData)
             })
-        })
-    }, [])
 
-    console.log(config)
+        if (window.config) setConfig(window.config)
+        else
+            fetch('config.json').then(res => {
+                res.json().then(c => {
+                    if (c.refreshDelay) reload(c.refreshDelay)
+                    setConfig(c)
+                })
+            })
+    }, [])
 
     return (
         <div className="CypressAnalytics">

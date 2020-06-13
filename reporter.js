@@ -8,10 +8,10 @@ function MyReporter(runner, options) {
     let failures = 0;
 
     const reportDir = options.reporterOptions.reportDir || "src";
-    const reportName = options.reporterOptions.reportName || "results.json";
+    const reportName = "results.json";
+    const configName = "config.json";
     const staticFilesDomain = options.reporterOptions.staticFilesUrl || "";
 
-    // this requires node v12+, rmdirSync
     if (fs.existsSync(reportDir)) fs.rmdirSync(reportDir, {recursive: true});
     fsExtra.copySync("build", reportDir)
 
@@ -97,6 +97,11 @@ function MyReporter(runner, options) {
         fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain)
             .replace(/<script type="text\/javascript"><\/script>/gi, `<script type='text/javascript'>window.value=${JSON.stringify(obj)}</script>`))
         fs.writeFileSync(`${directory}/${reportDir}/${reportName}`, JSON.stringify(results));
+        fs.writeFileSync(`${directory}/${reportDir}/${configName}`, JSON.stringify({
+            "title": "Cypress reports",
+            "lastRun": new Date().getTime(),
+            "refreshDelay": 300000
+        }));
     });
 }
 

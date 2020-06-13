@@ -11,6 +11,7 @@ function MyReporter(runner, options) {
     const reportName = "results.json";
     const configName = "config.json";
     const staticFilesDomain = options.reporterOptions.staticFilesUrl || "";
+    const isLocalDeployment = options.reporterOptions.isLocalDeployment || false;
 
     if (fs.existsSync(reportDir)) fs.rmdirSync(reportDir, {recursive: true});
     fsExtra.copySync("build", reportDir)
@@ -94,14 +95,23 @@ function MyReporter(runner, options) {
     runner.on('end', function (args) {
         const indexFile = fs.readFileSync(`${reportDir}/index.html`).toString();
         const obj = {test:'test'}
-        fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain)
-            .replace(/<script type="text\/javascript"><\/script>/gi, `<script type='text/javascript'>window.value=${JSON.stringify(obj)}</script>`))
-        fs.writeFileSync(`${directory}/${reportDir}/${reportName}`, JSON.stringify(results));
-        fs.writeFileSync(`${directory}/${reportDir}/${configName}`, JSON.stringify({
+        const config = {
             "title": "Cypress reports",
             "lastRun": new Date().getTime(),
             "refreshDelay": 300000
-        }));
+        }
+        if(isLocalDeployment) {
+            fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain)
+                .replace(/<script type="text\/javascript"><\/script>/gi, `<script type='text/javascript'>window.config=${JSON.stringify(config)};window.results=${JSON.stringify(results)}</script>`))
+        } else {
+            fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain))
+            fs.writeFileSync(`${directory}/${reportDir}/${reportName}`, JSON.stringify(results));
+            fs.writeFileSync(`${directory}/${reportDir}/${configName}`, JSON.stringify({
+                "title": "Cypress reports",
+                "lastRun": new Date().getTime(),
+                "refreshDelay": 300000
+            }));
+        }
     });
 }
 

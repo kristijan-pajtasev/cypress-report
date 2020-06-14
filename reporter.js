@@ -14,7 +14,7 @@ function MyReporter(runner, options) {
     const isLocalDeployment = options.reporterOptions.isLocalDeployment || false;
 
     if (fs.existsSync(reportDir)) fs.rmdirSync(reportDir, {recursive: true});
-    fsExtra.copySync("build", reportDir)
+    fsExtra.copySync(`${__dirname}/build`, reportDir)
 
     if (fs.existsSync(`${directory}/${reportDir}/${reportName}`)) fs.unlinkSync(`${directory}/${reportDir}/${reportName}`)
 

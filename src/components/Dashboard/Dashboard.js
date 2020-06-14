@@ -10,8 +10,8 @@ function Dashboard(props) {
     const stats = data;
 
     const pieData = [
-        {name: "Pass", value: stats.pass},
-        {name: "Fail", value: stats.fail}
+        {name: "Pass", value: stats.pass || 0},
+        {name: "Fail", value: stats.fail || 0}
     ]
 
     const specs = Object.keys(stats).filter(e => !["tests", "pass", "fail"].includes(e));

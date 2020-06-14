@@ -1,6 +1,6 @@
 {
   "name": "cypress-dashboard",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "main": "reporter.js",
   "author": "Kristijan Pajtasev",
@@ -29,5 +29,17 @@
     "react-scripts": "3.4.1",
     "cypress": "^4.6.0",
     "recharts": "^1.8.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

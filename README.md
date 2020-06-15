@@ -1,9 +1,13 @@
-# Cypress reports
+# Cypress dashboard
 
 ## Installing
 ```
 npm install cypress-dashboard
 ```
+
+## Output example
+
+![Report output example](https://i.imgur.com/kTaNZ32.png)
 
 ## Setup example
 ```js

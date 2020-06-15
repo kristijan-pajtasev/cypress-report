@@ -1,10 +1,12 @@
 {
   "name": "cypress-dashboard",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "main": "reporter.js",
   "author": "Kristijan Pajtasev",
   "license": "MIT",
+  "description": "Reporting library for Cypress tests.",
+  "keywords": ["cypress", "reports", "test reports", "dashboard", "tests", "testing"],
   "dependencies": {
     "fs-extra": "^9.0.1"
   },

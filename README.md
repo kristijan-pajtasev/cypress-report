@@ -1,5 +1,11 @@
 # Cypress dashboard
 
+Tests reporting dashboard with the simplest possible setup there is. 
+
+Pie chart shows percentage of failing and passing 
+tests. List on the right scrolls automatically and shows all spec files with number of tests passing for each. 
+Two containers on the bottom show tests in two specs files and after a while replaces it with list for next spec in line.   
+
 ## Installing
 ```
 npm install cypress-dashboard

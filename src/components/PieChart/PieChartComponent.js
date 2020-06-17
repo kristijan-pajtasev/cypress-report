@@ -36,7 +36,7 @@ function PieChartComponent(props) {
     const getPassValue = () => {
         const passValue = data.find(e => e.name === 'Pass').value;
         const percentage = (passValue / (data[0].value + data[1].value) * 100).toFixed(2) ;
-        return `${passValue} (${percentage})`
+        return `${percentage}%  (${passValue})`
     }
     const getFailValue = () => {
         const passValue = data.find(e => e.name === 'Fail').value;

@@ -13,7 +13,7 @@ npm install cypress-dashboard
 
 ## Output example
 
-![Report output example](https://i.imgur.com/kTaNZ32.png)
+![Report output example](https://i.imgur.com/T2KR270.png)
 
 ## Setup example
 ```js

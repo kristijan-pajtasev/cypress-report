@@ -7,7 +7,7 @@ function MyReporter(runner, options) {
     let passes = 0;
     let failures = 0;
 
-    const reportDir = options.reporterOptions.reportDir || "src";
+    const reportDir = options.reporterOptions.reportDir || "cypress-dashboard";
     const reportName = "results.json";
     const configName = "config.json";
     const staticFilesDomain = options.reporterOptions.staticFilesUrl || "";

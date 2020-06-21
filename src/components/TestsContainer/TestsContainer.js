@@ -13,10 +13,13 @@ const TestsContainer = (props) => {
         else setSecondIndex((secondIndex + 2) % numOfElements);
     }
 
+    const firstSpecName = specs[firstIndex];
+    const secondSpecName = specs[secondIndex];
+
     return (
         <div className="TestsContainer">
-            {numOfElements > 0 && <TestList onEnd={showNextSpec.bind(null, "FIRST")} spec={stats[specs[firstIndex]]} specName={specs[firstIndex]}/>}
-            {numOfElements > 1 && <TestList onEnd={showNextSpec.bind(null, "SECOND")} spec={stats[specs[secondIndex]]} specName={specs[secondIndex]}/>}
+            {numOfElements > 0 && <TestList spec={stats[firstSpecName]} specName={firstSpecName}/>}
+            {numOfElements > 1 && <TestList onEnd={showNextSpec.bind(null, "SECOND")} spec={stats[secondSpecName]} specName={secondSpecName}/>}
         </div>
     )
 

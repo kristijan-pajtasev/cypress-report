@@ -24,9 +24,7 @@ const AutoScroll = (props) => {
         if (elementHeight > containerHeight) {
             scroll(document.querySelector(`#${id}>*`), 0, elementHeight - containerHeight);
         } else if (elementHeight <= containerHeight && onEnd) {
-            setTimeout(() => {
-                onEnd();
-            }, 3000 * Math.random() + 3000)
+            setTimeout(onEnd, 3000 * Math.random() + 3000)
         }
     }, [data])
 

@@ -18,7 +18,7 @@ const TestsContainer = (props) => {
 
     return (
         <div className="TestsContainer">
-            {numOfElements > 0 && <TestList spec={stats[firstSpecName]} specName={firstSpecName}/>}
+            {numOfElements > 0 && <TestList onEnd={showNextSpec.bind(null, "FIRST")} spec={stats[firstSpecName]} specName={firstSpecName}/>}
             {numOfElements > 1 && <TestList onEnd={showNextSpec.bind(null, "SECOND")} spec={stats[secondSpecName]} specName={secondSpecName}/>}
         </div>
     )

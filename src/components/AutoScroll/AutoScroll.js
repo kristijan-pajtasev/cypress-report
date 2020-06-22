@@ -10,12 +10,12 @@ const AutoScroll = (props) => {
         const newTop = top + 4;
         element.style.top = `-${newTop}px`;
         setTimeout(() => {
-            if (newTop > maxTop && onEnd) {
+            if (newTop >= maxTop && onEnd) {
                 setTimeout(() => {
                     element.style.top = `0px`
-                    setTimeout(onEnd, 500);
-                }, 1500);
-            } else scroll(element, newTop > maxTop ? 0 : newTop, maxTop);
+                    setTimeout(onEnd, 1000);
+                }, 1000);
+            } else scroll(element, newTop >= maxTop ? 0 : newTop, maxTop);
         }, 200)
     }
 

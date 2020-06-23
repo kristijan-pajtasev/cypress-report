@@ -1,6 +1,6 @@
 {
   "name": "cypress-dashboard",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "private": false,
   "main": "reporter.js",
   "author": "Kristijan Pajtasev",
@@ -9,6 +9,10 @@
   "keywords": ["cypress", "reports", "test reports", "dashboard", "tests", "testing"],
   "dependencies": {
     "fs-extra": "^9.0.1"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/kristijan-pajtasev/cypress-report"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,6 +1,6 @@
 {
   "name": "cypress-dashboard",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "private": false,
   "main": "reporter.js",
   "author": "Kristijan Pajtasev",
@@ -15,8 +15,7 @@
     "testing"
   ],
   "dependencies": {
-    "fs-extra": "^9.0.1",
-    "react-autoscroll-component": "0.0.9"
+    "fs-extra": "^9.0.1"
   },
   "repository": {
     "type": "git",
@@ -42,6 +41,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "cypress": "^4.6.0",
+    "react-autoscroll-component": "0.0.9",
     "recharts": "^1.8.5"
   },
   "browserslist": {

@@ -8,6 +8,8 @@ function MyReporter(runner, options) {
     let failures = 0;
 
     const reportDir = options.reporterOptions.reportDir || "cypress-dashboard";
+    const dashboardTitle = options.reporterOptions.dashboardTitle || "Cypress reports";
+    const refreshInterval = options.reporterOptions.refreshInterval || 300000;
     const reportName = "results.json";
     const configName = "config.json";
     const staticFilesDomain = options.reporterOptions.staticFilesUrl || "";
@@ -107,9 +109,9 @@ function MyReporter(runner, options) {
             fs.writeFileSync(`${reportDir}/index.html`, indexFile.replace(/URL_PLACEHOLDER\s*/gi, staticFilesDomain))
             fs.writeFileSync(`${directory}/${reportDir}/${reportName}`, JSON.stringify(results));
             fs.writeFileSync(`${directory}/${reportDir}/${configName}`, JSON.stringify({
-                "title": "Cypress reports",
+                "title": dashboardTitle,
                 "lastRun": new Date().getTime(),
-                "refreshDelay": 300000
+                "refreshDelay": refreshInterval
             }));
         }
     });

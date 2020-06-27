@@ -35,3 +35,11 @@ Location where to store report
 ### isLocalDeployment | boolean
 If true all static files will use location on disc for reference, otherwise it will use relative href path.
 
+### refreshInterval | int
+Number of milliseconds saying how often do you want to refresh the page. Default value is 10 minutes.
+
+### dashboardTitle | string
+Title to be displayed at the top of the dashboard. Default title is "Cypress reports".
+
+
+

@@ -96,7 +96,6 @@ function MyReporter(runner, options) {
 
     runner.on('end', function (args) {
         const indexFile = fs.readFileSync(`${reportDir}/index.html`).toString();
-        const obj = {test:'test'}
         const config = {
             "title": "Cypress reports",
             "lastRun": new Date().getTime(),

@@ -39,7 +39,7 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "cypress": "^4.6.0",
     "react-autoscroll-component": "0.0.9",
     "recharts": "^1.8.5"
